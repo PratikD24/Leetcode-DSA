@@ -1,16 +1,17 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        map<char,int>mp;
+        int hash[26]={0};
 
         for(auto e:s)
         {
-            mp[e]++;
+            hash[e-'a']++;
         }
-
-        for(int i = 0;i<s.size();i++)
+        for(int i =0;i<s.length();i++)
         {
-            if(mp[s[i]] == 1)
+            char ch = s[i];
+
+            if(hash[ch - 'a'] == 1)
             {
                 return i;
             }
